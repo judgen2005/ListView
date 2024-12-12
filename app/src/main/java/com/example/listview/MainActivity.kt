@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity() {
     private fun deleteUser(position: Int) {
         val user = users[position]
         users.removeAt(position)
-        userListAdapter.remove("${user.name} - ${user.age} лет")
+        val userPosition = userListAdapter.getItem(position)
+        userListAdapter.remove(userPosition)
         Toast.makeText(this, "Пользователь '${user.name} - ${user.age} лет' удалён", Toast.LENGTH_LONG).show()
     }
 
